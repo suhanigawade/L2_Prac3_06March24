@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>PRAC 2</title>
+        <style>
+       * { font-size:50px; }
+             body { background-color:#ffffcc; }
+             h1 , h2{ background-color:black; color:white; width:50%; border-radius:40px; }
+             input[type="checkbox"] { width:1.5%; height:0.5em; }
+            </style>
+        <script>
+function find(){
+    event.preventDefault();
+    let name=document.getElementById("name");
+    let Py=document.getElementById("Py");
+    let Ja=document.getElementById("Ja");
+    let Js=document.getElementById("Js");
+    let msg=document.getElementById("msg");
+    if(name.value==""){
+        alert("Enter name of yours")
+        msg.innerHTML="";
+        name.focus();
+        return;
+    }
+    let languages="";
+    if (Ja.checked) languages +="Java ";
+    if (Js.checked) languages +="Javascript";
+    if (Py.checked) languages +="Pyhton";
+    let ans= "name: "+name.value+ "choice:"+languages;
+    msg.innerHTML=ans;
+
+
+}
+        </script>
+    </head>
+    <body>
+<center>
+<h1>Language App</h1>
+        <form onsubmit="find()">
+            <input type="text" placeholder="enter name" id="name"required/><br>
+            <input type="checkbox" value="Ja" id="Ja"/>Java
+            <input type="checkbox" value="Js" id="Js"/>Java Script
+            <input type="checkbox" value="Py" id="Py"/>Python<br>
+            <input type="submit"/>
+            <h2 id="msg"></h2>
+        </form>
+</center>
+    </body>
+</html>
